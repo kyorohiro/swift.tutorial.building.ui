@@ -12,6 +12,7 @@ class ViewController: UIViewController,
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate {
 
+    @IBOutlet weak var ratingView: RatingControl!
     var textFieldDelegate:MealNameFieldDelegate? ;
 
     // 新しく init を定義した場合に必須
@@ -43,12 +44,6 @@ UINavigationControllerDelegate {
     @IBAction func onClickButton(_ sender: Any) {
         print("called Click Button")
         mealNameLabel.text = "XXX"
-      //  mealNameField.delegate =
-
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.sourceType = .photoLibrary
-        imagePickerController.delegate = self
-        present(imagePickerController, animated: true, completion: nil)
     }
     
     

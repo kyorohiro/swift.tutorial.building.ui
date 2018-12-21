@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="oQx-JX-lok">
-                                <rect key="frame" x="16" y="36" width="343" height="459.5"/>
+                                <rect key="frame" x="16" y="36" width="343" height="521.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MeR-QK-0aP">
-                                        <rect key="frame" x="0.0" y="0.0" width="86.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MeR-QK-0aP">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -47,13 +47,26 @@
                                             <constraint firstAttribute="width" secondItem="YNU-nJ-kIp" secondAttribute="height" multiplier="1:1" id="eXZ-lu-02J"/>
                                         </constraints>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="xJi-N0-6Mr" appends="YES" id="7FW-V7-iEN"/>
+                                            <outletCollection property="gestureRecognizers" destination="xJi-N0-6Mr" appends="YES" id="IDC-0v-4Et"/>
                                         </connections>
                                     </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3li-wf-tbc" customClass="RatingControl" customModule="Xxx" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="471.5" width="343" height="50"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="starSize">
+                                                <size key="value" width="44" height="44"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="starCount">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="3li-wf-tbc" firstAttribute="centerX" secondItem="oQx-JX-lok" secondAttribute="centerX" id="Jg3-pM-eDD"/>
                                     <constraint firstItem="YNU-nJ-kIp" firstAttribute="leading" secondItem="oQx-JX-lok" secondAttribute="leading" id="OTp-La-QRn"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="D5S-FY-zXD" secondAttribute="trailing" id="ban-3M-D2X"/>
+                                    <constraint firstItem="MeR-QK-0aP" firstAttribute="centerX" secondItem="oQx-JX-lok" secondAttribute="centerX" id="gDg-Hv-byu"/>
                                     <constraint firstAttribute="trailing" secondItem="YNU-nJ-kIp" secondAttribute="trailing" id="qdO-4D-MsI"/>
                                 </constraints>
                             </stackView>
@@ -71,12 +84,13 @@
                         <outlet property="mealNameField" destination="D5S-FY-zXD" id="qrP-7W-gbU"/>
                         <outlet property="mealNameLabel" destination="MeR-QK-0aP" id="k1n-lX-YVh"/>
                         <outlet property="photoImageView" destination="YNU-nJ-kIp" id="ax0-EH-k4X"/>
+                        <outlet property="ratingView" destination="3li-wf-tbc" id="Ght-3Q-4EU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="xJi-N0-6Mr">
                     <connections>
-                        <action selector="onTapPhoto:" destination="BYZ-38-t0r" id="jca-SP-Mcq"/>
+                        <action selector="onTapPhoto:" destination="BYZ-38-t0r" id="pzq-PB-Bw4"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
