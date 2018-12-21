@@ -50,7 +50,7 @@
                                             <outletCollection property="gestureRecognizers" destination="xJi-N0-6Mr" appends="YES" id="IDC-0v-4Et"/>
                                         </connections>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3li-wf-tbc" customClass="RatingControl" customModule="Xxx" customModuleProvider="target">
+                                    <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" spacing="8" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3li-wf-tbc" customClass="RatingControl" customModule="Xxx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="471.5" width="343" height="50"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="size" keyPath="starSize">
@@ -63,8 +63,9 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="3li-wf-tbc" firstAttribute="centerX" secondItem="oQx-JX-lok" secondAttribute="centerX" id="Jg3-pM-eDD"/>
+                                    <constraint firstItem="3li-wf-tbc" firstAttribute="leading" secondItem="oQx-JX-lok" secondAttribute="leadingMargin" constant="100" id="KGn-vW-GT8"/>
                                     <constraint firstItem="YNU-nJ-kIp" firstAttribute="leading" secondItem="oQx-JX-lok" secondAttribute="leading" id="OTp-La-QRn"/>
+                                    <constraint firstItem="3li-wf-tbc" firstAttribute="centerX" secondItem="oQx-JX-lok" secondAttribute="centerX" id="WAC-Jp-07u"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="D5S-FY-zXD" secondAttribute="trailing" id="ban-3M-D2X"/>
                                     <constraint firstItem="MeR-QK-0aP" firstAttribute="centerX" secondItem="oQx-JX-lok" secondAttribute="centerX" id="gDg-Hv-byu"/>
                                     <constraint firstAttribute="trailing" secondItem="YNU-nJ-kIp" secondAttribute="trailing" id="qdO-4D-MsI"/>
