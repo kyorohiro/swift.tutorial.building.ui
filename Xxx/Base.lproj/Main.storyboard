@@ -19,11 +19,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MealTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MealTableViewCell" rowHeight="90" id="koG-ND-zyI" customClass="MealTableViewCell" customModule="Xxx" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MealTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MealTableViewCell" rowHeight="90" id="koG-ND-zyI" customClass="MealTableViewCell" customModule="Xxx" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="MyCell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="koG-ND-zyI" id="H2s-z2-zGA">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="vXz-Ge-7M3">
@@ -58,6 +58,7 @@
                                     <outlet property="nameLabel" destination="p3W-pJ-Krr" id="9qQ-bl-uhD"/>
                                     <outlet property="photoView" destination="vXz-Ge-7M3" id="WF0-xd-iyQ"/>
                                     <outlet property="ratingView" destination="Tfm-5E-LLa" id="nY1-zK-2um"/>
+                                    <segue destination="BYZ-38-t0r" kind="push" identifier="ShowDetail" id="Fj9-JX-2Pm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -69,7 +70,7 @@
                     <navigationItem key="navigationItem" title="Your Meals" id="qEI-CP-rWl">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GJ8-56-a5Z">
                             <connections>
-                                <segue destination="HLh-qA-zTg" kind="showDetail" id="wd4-hv-6Fp"/>
+                                <segue destination="HLh-qA-zTg" kind="presentation" identifier="AddItem" id="wd4-hv-6Fp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -213,10 +214,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gw-Aj-9Ay" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1884" y="133.5832083958021"/>
+            <point key="canvasLocation" x="2050" y="514"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultPhoto" width="320" height="320"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Fj9-JX-2Pm"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -25,11 +25,27 @@ class ViewController: UIViewController,
         
     }
 
+    private func updateSaveButtonState() {
+        // Disable the Save button if the text field is empty.
+        let text = mealNameField.text ?? ""
+        saveButton.isEnabled = false//!text.isEmpty
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("called viewDidLoad")
         self.mealNameField.delegate = self
        // photoImageView.delegate = self
+        // Set up views if editing an existing Meal.
+        if let meal = meal {
+            navigationItem.title = meal.name
+            self.mealNameField.text = meal.name
+            photoImageView.image = meal.photo
+            ratingView.rating = meal.rating
+        }
+        
+        // Enable the Save button only if the text field has a valid Meal name.
+        updateSaveButtonState()
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,7 +94,18 @@ class ViewController: UIViewController,
         dismiss(animated: true, completion: nil)
     }
     @IBAction func onCancel(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        print("oncanncel")
+        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddMealMode {
+            dismiss(animated: true, completion: nil)
+        }
+        else if let owningNavigationController = navigationController{
+            owningNavigationController.popViewController(animated: true)
+        }
+        else {
+            fatalError("The MealViewController is not inside a navigation controller.")
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -102,9 +129,11 @@ class ViewController: UIViewController,
 
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool{
-        print("called ")
+        print("called textFieldShouldReturn")
         textField.resignFirstResponder()
         self.mealNameLabel.text = textField.text
+        let text = mealNameField.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
         return true
     }
 }
