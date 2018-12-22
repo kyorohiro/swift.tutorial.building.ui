@@ -7,26 +7,28 @@
 //
 
 import UIKit
+import os.log
 
 class ViewController: UIViewController,
-UIImagePickerControllerDelegate,
-UINavigationControllerDelegate {
+    UITextFieldDelegate,
+    UIImagePickerControllerDelegate,
+    UINavigationControllerDelegate {
 
     @IBOutlet weak var ratingView: RatingControl!
-    var textFieldDelegate:MealNameFieldDelegate? ;
-
+    var meal: Meal?
+    
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     // 新しく init を定義した場合に必須
     required init?(coder aDecoder: NSCoder) {
        // fatalError("init(coder:) has not been implemented")
         super.init(coder: aDecoder)
-        self.textFieldDelegate = MealNameFieldDelegate(self)
         
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("called viewDidLoad")
-        mealNameField.delegate = self.textFieldDelegate
+        self.mealNameField.delegate = self
        // photoImageView.delegate = self
     }
 
@@ -75,21 +77,36 @@ UINavigationControllerDelegate {
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
     }
-}
-
-class MealNameFieldDelegate : NSObject, UITextFieldDelegate {
-
-    var target:ViewController?
-
-    init(_ target:ViewController) {
-        self.target = target
+    @IBAction func onCancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        super.prepare(for: segue, sender: sender)
+        print("##>>## prepare -------------------")
+        // Configure the destination view controller only when the save button is pressed.
+        
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        print(button)
+        let name = mealNameField.text ?? ""
+        let photo = photoImageView.image
+        let rating = ratingView.rating
+        
+        // Set the meal to be passed to MealTableViewController after the unwind segue.
+        meal = Meal(name: name, photo: photo, rating: rating)
+    }
+
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool{
         print("called ")
         textField.resignFirstResponder()
-        target?.mealNameLabel.text = textField.text
+        self.mealNameLabel.text = textField.text
         return true
     }
 }
+
 

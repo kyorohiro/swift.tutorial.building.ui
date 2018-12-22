@@ -126,6 +126,20 @@ class MealTableViewController: UITableViewController {
         
         meals += [meal1, meal2, meal3]
     }
-    
+ 
+    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
+        print("##called unwindToMealList")
+        print(sender.source)
+        if let sourceViewController = sender.source as? ViewController {
+            print("##called unwindToMealList 2")
+            let meal = sourceViewController.meal
+            print(meal)
+            // Add a new meal.
+            let newIndexPath = IndexPath(row: meals.count, section: 0)
+            
+            meals.append(meal!)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
 }
 
