@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cc9-j0-g0N">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,67 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Meal Table View Controller-->
+        <scene sceneID="PUX-ay-if7">
+            <objects>
+                <tableViewController id="cc9-j0-g0N" customClass="MealTableViewController" customModule="Xxx" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wzp-F6-xQn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MealTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MealTableViewCell" rowHeight="90" id="koG-ND-zyI" customClass="MealTableViewCell" customModule="Xxx" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="MyCell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="koG-ND-zyI" id="H2s-z2-zGA">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="vXz-Ge-7M3">
+                                            <rect key="frame" x="16" y="17" width="58" height="56"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="vXz-Ge-7M3" secondAttribute="height" multiplier="83:80" id="4uZ-Pd-MIV"/>
+                                            </constraints>
+                                        </imageView>
+                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tfm-5E-LLa" customClass="RatingControl" customModule="Xxx">
+                                            <rect key="frame" x="120" y="39" width="220" height="44"/>
+                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3W-pJ-Krr">
+                                            <rect key="frame" x="120" y="10" width="220" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="p3W-pJ-Krr" firstAttribute="top" secondItem="H2s-z2-zGA" secondAttribute="top" constant="10" id="BrE-li-FHg"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vXz-Ge-7M3" secondAttribute="bottom" constant="6" id="C2M-9h-yCh"/>
+                                        <constraint firstItem="vXz-Ge-7M3" firstAttribute="leading" secondItem="H2s-z2-zGA" secondAttribute="leadingMargin" id="I0A-Gs-fce"/>
+                                        <constraint firstItem="vXz-Ge-7M3" firstAttribute="top" secondItem="H2s-z2-zGA" secondAttribute="topMargin" constant="6" id="IDl-Ha-q9S"/>
+                                        <constraint firstItem="p3W-pJ-Krr" firstAttribute="leading" secondItem="vXz-Ge-7M3" secondAttribute="trailing" constant="46" id="YP9-TU-gHj"/>
+                                        <constraint firstItem="Tfm-5E-LLa" firstAttribute="leading" secondItem="vXz-Ge-7M3" secondAttribute="trailing" constant="20" id="s33-Ou-0ch"/>
+                                        <constraint firstItem="Tfm-5E-LLa" firstAttribute="leading" secondItem="vXz-Ge-7M3" secondAttribute="trailing" constant="20" id="sJH-YN-48m"/>
+                                        <constraint firstItem="Tfm-5E-LLa" firstAttribute="top" secondItem="p3W-pJ-Krr" secondAttribute="bottom" constant="10" id="vp6-R6-DII"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" label="KYCELL"/>
+                                <connections>
+                                    <outlet property="nameLabel" destination="p3W-pJ-Krr" id="9qQ-bl-uhD"/>
+                                    <outlet property="photoView" destination="vXz-Ge-7M3" id="WF0-xd-iyQ"/>
+                                    <outlet property="ratingView" destination="Tfm-5E-LLa" id="nY1-zK-2um"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cc9-j0-g0N" id="s2b-qh-T6Z"/>
+                            <outlet property="delegate" destination="cc9-j0-g0N" id="jmu-uS-EIj"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aRo-M9-uok" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-130.40000000000001" y="133.5832083958021"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -18,7 +79,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="oQx-JX-lok">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="oQx-JX-lok">
                                 <rect key="frame" x="16" y="36" width="343" height="521.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MeR-QK-0aP">
@@ -50,7 +111,7 @@
                                             <outletCollection property="gestureRecognizers" destination="xJi-N0-6Mr" appends="YES" id="IDC-0v-4Et"/>
                                         </connections>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" spacing="8" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3li-wf-tbc" customClass="RatingControl" customModule="Xxx" customModuleProvider="target">
+                                    <stackView opaque="NO" contentMode="center" ambiguous="YES" distribution="equalSpacing" alignment="center" spacing="8" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3li-wf-tbc" customClass="RatingControl" customModule="Xxx" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="471.5" width="343" height="50"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="size" keyPath="starSize">
@@ -95,7 +156,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="945" y="134"/>
         </scene>
     </scenes>
     <resources>
